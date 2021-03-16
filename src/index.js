@@ -1,9 +1,57 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'semantic-ui-css/semantic.min.css';
-import Root from './Root';
+// import 'semantic-ui-css/semantic.min.css';
+// import Root from './Root';
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+// ReactDOM.render(<Root />, document.getElementById('root'));
+class Menu extends React.Component {
+  render(){
+      let menus = [
+          'Home',
+          'About',
+          'Service',
+          'Portfolio',
+          'Contact us'
+      ]
+      return React.createElement('div',
+          null,
+          menus.map((v, i) => {
+              return React.createElement('div',
+                  {key: i},
+                  React.createElement(Link, {label: v})
+              )
+          })
+      )
+  }
+}
+
+class Link extends React.Component {
+  render(){
+    const url = '/'
+      + this.props.label
+        .toLowerCase()
+        .trim()
+        .replace(' ', '-')
+      return React. createElement('div',
+        null,
+        React.createElement(
+          'a',
+          {href: url},
+          this.props.label
+        ),
+        React.createElement('br')
+        )
+  }
+}
+
+ReactDOM.render(
+  React.createElement(
+      Menu,
+      null
+  ),
+  document.getElementById('menu')
+)
+
 
 
 
