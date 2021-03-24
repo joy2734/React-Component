@@ -11,9 +11,9 @@ export default class MainLayout extends Component {
   render() {
     const {activeItem} = this.state
     return (<div style={{height:"100%"}}>
-        <Top />
-        <Middle />
-        <Bottom />
+        <Top className="top-panel"></Top>
+        <Middle className="middle-panel" />
+        <Bottom className="bottom-panel" />
       </div>
     )
   }

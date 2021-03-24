@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { Logo, TopLeftMenu } from '../content';
 
 class TopLayout extends Component {
     render() {
-        let imagme;
-        if(this.props.img)
-        imagme = React.createElement('img', {src: this.props.img});
-        else
-            imagme = React.createElement('div');
         return (
-            <div className="top-panel">
-                {imagme}
+            <div className={this.props.className}>
+                {/* 로고 */}
+                <Logo></Logo>
+                <TopLeftMenu></TopLeftMenu>
+                {/* about discover getStarted */}
             </div>
         );
     };
