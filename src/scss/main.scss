@@ -12,7 +12,7 @@
 
 .middle-panel{
     position: absolute;
-    top: 18%;
+    top: 15%;
     left: 25%;
     width: 50%;
     height: 75%;
@@ -52,4 +52,8 @@
     border-radius: 4px;
     border: 1px #ecdfdf solid;
     padding: 10px;
+}
+
+.select-reword-btn{
+    background: green;
 }
