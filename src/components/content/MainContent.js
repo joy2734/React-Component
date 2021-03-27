@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
-class ContentBox extends Component {
+class MainContent extends Component {
     render() {
         return(
-            <div className="content-box" style={{height: this.props.height || "auto" }}>
+            <div>
+                {this.props.title}
                 {this.props.children}
             </div>
         )
@@ -11,4 +12,4 @@ class ContentBox extends Component {
 };
 
 
-export default ContentBox;
+export default MainContent;

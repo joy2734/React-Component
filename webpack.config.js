@@ -43,6 +43,16 @@ module.exports = {
         {
           test: /\.(ttf|eot|svg|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,          
           loader: 'file-loader'
+        },
+        {
+          test: require.resolve("underscore"),
+          loader: "expose-loader",
+          options: {
+            exposes: {
+              globalName: "_.filter",
+              moduleLocalName: "filter",
+            },
+          },
         }
       ]
   },
