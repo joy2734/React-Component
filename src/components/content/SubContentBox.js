@@ -21,20 +21,29 @@ class SubContentBox extends Component {
         let rewardEl = (ReactDOM.findDOMNode(this.refs.rewardArea)).children[0].clientHeight;
 
         let subContentHeight = topEl + contentEl + rewardEl;
-        this.setState({autoHeight: subContentHeight})   
+        this.setState({autoHeight: subContentHeight})
+    }
+    componentDidUpdate(prevProps, prevState){
+        let subContentAreaEl = (ReactDOM.findDOMNode(this.refs.subContentArea));
+
+        if(this.state.leftCount == 0){
+            subContentAreaEl.style.opacity = 0.5
+        }else{
+            subContentAreaEl.style.opacity = 1
+        }
     }
     handleClick(){
-
+        this.setState({leftCount: this.state.leftCount + 1});
     }
     render() {
         return(
             <div ref="subContentArea" className="sub-content-box" style={{height:  this.props.height || this.state.autoHeight , fontSize: "8px"}}>
                 <div ref="topArea" className="top-info">
-                    <div style={{width:"50%",float:"left", fontSize:"14px", fontWeight: "700"}}>{this.props.subTitle}</div>
-                    <div style={{width:"20%",float:"right",color: "#6cfbf4"}}>Pledge ${this.props.payment} or more</div>
+                    <div style={{width:"50%",float:"left", fontSize:"12px", fontWeight: "700"}}>{this.props.subTitle}</div>
+                    <div style={{width:"50%",float:"right",color: "#6cfbf4", textAlign: 'right'}}>Pledge ${this.props.payment} or more</div>
                 </div>
                 <Seperator />
-                <div ref="contentArea" className="content-info" style={{fontSize:"6px"}}>
+                <div ref="contentArea" className="content-info" style={{fontSize:"6px", color: "gray"}}>
                     {this.props.children}
                 </div>
                 <Seperator />
