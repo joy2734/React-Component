@@ -1,14 +1,15 @@
 import _ from "underscore";
 import React, { Component, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import {Seperator} from "../content";
+import {Seperator, CustomizedDialogs} from "../content";
 
 class SubContentBox extends Component {
     constructor(props){
         super(props)
         this.state = {
             leftCount: 0,
-            autoHeight: 0 
+            autoHeight: 0,
+            open: false
         }
     }
     componentDidMount(){
@@ -33,7 +34,10 @@ class SubContentBox extends Component {
         }
     }
     handleClick(){
-        this.setState({leftCount: this.state.leftCount + 1});
+        this.setState({leftCount: this.state.leftCount + 1, open: true});
+    }
+    handleClose(){
+        this.setState({open: false});
     }
     render() {
         return(
@@ -51,6 +55,16 @@ class SubContentBox extends Component {
                     <div style={{width:"30%",float:"left"}}><span style={{fontSize:"14px", fontWeight: "700"}}>{this.state.leftCount}</span>&nbsp;&nbsp; Left</div>
                     <div className="select-reword-btn" onClick={this.handleClick.bind(this)} style={{width:"18%",float:"right", color: "white"}}>Select Reward</div>
                 </div>
+                <CustomizedDialogs open={this.state.open}>
+                    <div style={{width: "310px", height: "142px"}}>
+                        <div className="confirm-icon"></div>
+                        <div style={{fontSize: "15px", fontWeight: "bold", textAlign:"center"}}>Thanks for your support!</div>
+                        <div style={{fontSize: "10px", color: "gray", textAlign:"center"}}>
+                            Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed.
+                        </div>
+                        <div className="confirm-btn" onClick={this.handleClose.bind(this)} >got it!</div>
+                    </div>
+                </CustomizedDialogs>
             </div>
         )
     };

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { MainContent, ContentBox, SubContentBox, StatisticsBox, Seperator } from '../content';
-
-let text=""
-let textContent=""
+import { MainContent, ContentBox, SubContentBox, StatisticsBox, Seperator} from '../content';
 
 class MiddleLayout extends Component {
     render() {
