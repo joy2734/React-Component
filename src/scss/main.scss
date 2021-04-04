@@ -37,11 +37,13 @@
     position: absolute;
     top: 10px;
     left: 15px;
+    cursor: pointer;
 }
 
 .top-left-menu{
     width: 80%;
     float:right;
+    cursor: pointer;
 }
 
 .content-box{
@@ -155,4 +157,20 @@
     height: 70px;
     width: 23%;
     margin-left: 41%;
+}
+
+.top-left-menu{
+    width: 5%;
+    color: white;
+    text-align: center;
+    font-size: 4px;
+    font-weight: bold;
+}
+
+.close-btn{
+    background-image: url("../../image/icon-close-modal.svg");
+    background-repeat: no-repeat;
+    float:right;
+    height: 30px;
+    width: 30px;
 }

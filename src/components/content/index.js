@@ -7,3 +7,4 @@ export { default as Seperator } from './Seperator';
 export { default as BarSeperate } from './BarSeperate';
 export { default as MainContent } from './MainContent';
 export { default as CustomizedDialogs} from './CustomizedDialogs';
+export { default as ProjectReward} from './ProjectReward';

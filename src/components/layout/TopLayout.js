@@ -7,7 +7,11 @@ class TopLayout extends Component {
             <div className={this.props.className}>
                 {/* 로고 */}
                 <Logo></Logo>
-                <TopLeftMenu></TopLeftMenu>
+                <div style={{float:"right", "width": "85%", paddingTop: "10px",paddingRight: "50px"}}>
+                    <TopLeftMenu>About</TopLeftMenu>
+                    <TopLeftMenu>Discover</TopLeftMenu>
+                    <TopLeftMenu>Get Starter</TopLeftMenu>
+                </div>
                 {/* about discover getStarted */}
             </div>
         );

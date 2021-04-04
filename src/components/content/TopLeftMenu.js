@@ -4,7 +4,7 @@ class BaseMenu extends Component {
     render() {
         return(
             <div className="top-left-menu">
-
+                {this.props.children}
             </div>
         )
     };
