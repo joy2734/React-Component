@@ -5854,6 +5854,11 @@ react-overlays@^4.1.0:
     uncontrollable "^7.0.0"
     warning "^4.0.3"
 
+react-percent-bar@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-percent-bar/-/react-percent-bar-0.0.2.tgz#7f920e7c31c66e2a8d314b85a03ba6a070ab58ab"
+  integrity sha512-Lu9R84PNupylUsk1fHZM37AA4KI8jSs9JFQqq2x60lWZwjTjIJ6hOtYKmunm8CHLj7GRcT5+v44kUkfIAl89yw==
+
 react-popper@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.4.tgz#d2ad3d2474ac9f1abf93df3099d408e5aa6a2e22"

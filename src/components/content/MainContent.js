@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import _ from "underscore";
 import {CustomizedDialogs, ProjectReward, Seperator, ContentBox} from "../content";
 
 class MainContent extends Component {
-    state = { bookMarkStyle : {color:"gray", background: "#e0e0e0"}, bmtext: "Bookmark", open: false}
+    constructor(props){
+        super()
+        this.state = { 
+            bookMarkStyle : {
+                color:"gray", 
+                background: "#e0e0e0",
+            },
+            bmtext: "Bookmark", 
+            open: false,
+            BambooStdCount: 0,
+            BlackEdStdCount: 0,
+            MahoganySpcEdCount: 0,
+        }
+    }
     handleClick(){
         let bookmarkIconEl = (ReactDOM.findDOMNode(this.refs.bookmarkIcon))
 
@@ -16,7 +30,9 @@ class MainContent extends Component {
         }
     }
     projectHandleClick(){
-        this.setState({open: true})
+        let leftInfo = this.props.loadLeftInfo()
+        console.log(leftInfo)
+        this.setState(_.extend({open: true}, leftInfo));
     }
     projectHandleClose(){
         this.setState({open: false});
@@ -38,22 +54,22 @@ class MainContent extends Component {
                         <div style={{fontWeight: "bold", fontSize: "13PX", float:"left", width: "100%"}}>Back this project</div>
                         <div style={{color: "gray", fontSize: "8px",float:"left", width: "100%"}}>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</div>
                         <Seperator height="10px"/>
-                        <ProjectReward projectType="" paymentText="Pledge with no reward">
+                        <ProjectReward projectType="" paymentText="Pledge with no reward" leftCount={""}>
                             Choose to support us without a reward if you simply believe in our project. As a
                             backer, yout will be signed up to receive product updates via email.
                         </ProjectReward>
                         <Seperator height="10px"/>
-                        <ProjectReward projectType="BambooStand" paymentText="Pledge $25 or more">
+                        <ProjectReward projectType="BambooStand" paymentText="Pledge $25 or more" leftCount={this.state.BambooStdCount} >
                             You get an ergonomic stand made of natural bamboo. You've helped us launch
                             our promotional campaign, and you'll be added to a special Backer member list.
                         </ProjectReward>
                         <Seperator height="10px"/>
-                        <ProjectReward projectType="Black Edition Stand" paymentText="Pledge $75 or more" >
+                        <ProjectReward projectType="Black Edition Stand" paymentText="Pledge $75 or more" leftCount={this.state.BlackEdStdCount} >
                             You get a Black Edition computer stand and a personal thank you.
                             You'll be added to our Backer member list. Shipping is included.
                         </ProjectReward>
                         <Seperator height="10px"/>
-                        <ProjectReward projectType="Mahogany Special Edition" paymentText="Pledge $200 or more" >
+                        <ProjectReward projectType="Mahogany Special Edition" paymentText="Pledge $200 or more"leftCount={this.state.MahoganySpcEdCount}  >
                             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal
                             thank you. You'll be added to our Backer member list. Shipping is included.
                         </ProjectReward>

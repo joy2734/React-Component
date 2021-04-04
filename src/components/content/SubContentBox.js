@@ -7,9 +7,9 @@ class SubContentBox extends Component {
     constructor(props){
         super(props)
         this.state = {
-            leftCount: 0,
             autoHeight: 0,
-            open: false
+            open: false,
+            leftCount: 0
         }
     }
     componentDidMount(){
@@ -34,7 +34,8 @@ class SubContentBox extends Component {
         }
     }
     handleClick(){
-        this.setState({leftCount: this.state.leftCount + 1, open: true});
+        this.setState({leftCount: this.state.leftCount+1, open: true});
+        this.props.rewardHandleClick(this.props.id ,this.state.leftCount);
     }
     handleClose(){
         this.setState({open: false});

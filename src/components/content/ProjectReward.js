@@ -22,7 +22,7 @@ class ProjectReward extends Component {
         let contentEl = (ReactDOM.findDOMNode(this.refs.contentArea)).clientHeight + 30;
 
         let subContentHeight = topEl + contentEl;
-        this.setState({autoHeight: subContentHeight})
+        this.setState({autoHeight: subContentHeight, leftCount: this.props.leftCount})
     }
     componentDidUpdate(prevProps, prevState){
         let subContentAreaEl = (ReactDOM.findDOMNode(this.refs.subContentArea));
@@ -35,15 +35,15 @@ class ProjectReward extends Component {
     }
     projectHandleClick(){
         let subContentAreaEl = (ReactDOM.findDOMNode(this.refs.subContentArea));
-        subContentAreaEl.style.opacity = subContentAreaEl.style.opacity == 1 ? 0.5 : 1;
+        //subContentAreaEl.style.opacity = subContentAreaEl.style.opacity == 1 ? 0.5 : 1;
     }
     render() {
         return(
             <div ref="subContentArea" className="sub-content-box" onClick={this.projectHandleClick.bind(this)} style={{height:  this.props.height || this.state.autoHeight , fontSize: "8px"}}>
                 <div ref="topArea" className="top-info">
                     <div style={{width: "20px",float: "left",height: "19px",border: "2px #157a72 solid",borderRadius: "16px"}}></div>
-                    <div style={{width:"50%",float:"left", color:"#157a72" , fontSize:"12px", fontWeight: "700", "marginLeft": "10px"}}>{this.props.projectType || 'none'}<span>{this.props.paymentText}</span></div>
-                    <div style={{float:"right"}}><span style={{fontSize:"14px", fontWeight: "700"}}>{this.state.leftCount}</span>&nbsp;&nbsp; Left</div>
+                    <div style={{width:"70%",float:"left", color:"#157a72" , fontSize:"12px", fontWeight: "700", "marginLeft": "10px"}}>{this.props.projectType || 'none'}&nbsp;&nbsp;&nbsp;<span>{this.props.paymentText}</span></div>
+                    <div style={{float:"right"}}><span style={{fontSize:"14px", fontWeight: "700"}}>{this.state.leftCount}</span>&nbsp;&nbsp; {this.props.projectType ? "Left": ""}</div>
                 </div>
                 <Seperator />
                 <div ref="contentArea" className="content-info" style={{fontSize:"6px", color: "gray"}}>
