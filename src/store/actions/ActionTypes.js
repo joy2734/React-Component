@@ -1,0 +1,5 @@
+export const ADD_BAMBOO_CNT = 'ADD_BAMBOO_CNT';
+export const ADD_BLACK_STD_CNT = 'ADD_BLACK_STD_CNT';
+export const ADD_MAHOGANY_CNT =  'ADD_MAHOGANY_CNT';
+export const TOGGLE_OPEN = 'TOGGLE_OPEN';
+export const TOGGLE_BOOKMARK = 'TOGGLE_BOOKMARK'

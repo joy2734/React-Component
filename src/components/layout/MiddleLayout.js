@@ -1,17 +1,23 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+import {useSelector} from "react-redux";
 import { MainContent, ContentBox, SubContentBox, StatisticsBox, Seperator} from '../content';
 
 const MiddleLayout = ({
     className
 }) => {
-    const [bambooStdCount, setBambooStdCount] = useState(0);
-    const [blackEdStdCount, setBlackEdStdCount] = useState(0);
-    const [mahoganySpcEdCount, setMahoganySpcEdCount] = useState(0);
+    const {
+        bambooStdCount,
+        blackEdStdCount,
+        mahoganySpcEdCount
+    } = useSelector(store => store.ProjectLeftCountReducer);
+    var {
+        open
+    } = useSelector(store => store.ToggleReducer);
 
     return(
         <div className={className}>
             <ContentBox height="20%">
-                <MainContent title="Mastercraft Bamboo Monitor Riser">
+                <MainContent title="Mastercraft Bamboo Monitor Riser" bambooStdCount={bambooStdCount}  blackEdStdCount={blackEdStdCount} mahoganySpcEdCount={mahoganySpcEdCount}>
                     A beautiful & handcrafted monitor stand to reduce neck and eye strain.
                 </MainContent>
             </ContentBox>
@@ -34,17 +40,17 @@ const MiddleLayout = ({
                     </div>
                 </ContentBox>
                 <Seperator></Seperator>
-                <SubContentBox id="bs" subTitle="Bamboo Stand" payment="25">
+                <SubContentBox id="bs" subTitle="Bamboo Stand" payment="25" leftCount={bambooStdCount} open={open}>
                     You get an ergonomic stand made of natural bamboo. You've helped us launch
                     our promotional campaign, and you'll be added to a special Backer member list.
                 </SubContentBox>
                 <Seperator></Seperator>
-                <SubContentBox id="bes" subTitle="Black Edition Stand" payment="75">
+                <SubContentBox id="bes" subTitle="Black Edition Stand" payment="75" leftCount={blackEdStdCount} open={open}>
                     You get a Black Special Edition computer stand and personal thank you. You'll
                     be added to our Backer member list. Shipping is included.
                 </SubContentBox>
                 <Seperator></Seperator>
-                <SubContentBox id="mse" subTitle="Mahogany Special Edition" payment="200">
+                <SubContentBox id="mse" subTitle="Mahogany Special Edition" payment="200" leftCount={mahoganySpcEdCount} open={open}>
                     You get two Special Edition Mahogany stands. a Backer T-Shirt, and a personal
                     thank you. You'll be added to our Backer member list. Shipping is included.
                 </SubContentBox>
