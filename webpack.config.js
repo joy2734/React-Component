@@ -4,7 +4,7 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   entry: [
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?reload=true',
     './src/index.js'
   ],
   output: {
