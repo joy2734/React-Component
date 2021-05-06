@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-class ContentBox extends Component {
-    render() {
-        return(
-            <div className="content-box" style={{height: this.props.height || "auto" }}>
-                {this.props.children}
-            </div>
-        )
-    };
+const ContentBox = ({
+    height,
+    children
+}) => {
+    return(
+        <div className="content-box" style={{height: height || "auto" }}>
+            {children}
+        </div>
+    )
 };
-
 
 export default ContentBox;

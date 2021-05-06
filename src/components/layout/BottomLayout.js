@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-class BottomLayout extends Component {
-    render() {
-        return(
-            <div className={this.props.className} >
-
-            </div>
-        )
-    };
+const BottomLayout = ({
+    className,
+    children
+}) => {
+    return(
+        <div className={className} >
+            {children}
+        </div>
+    )
 };
 
 

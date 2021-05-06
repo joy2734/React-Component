@@ -3,26 +3,21 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 import 'semantic-ui-css/semantic.min.css';
 import './scss/main.scss';
-import { Menu } from 'semantic-ui-react';
+import {createStore} from 'redux';
 import { Bottom, Middle, Top } from './components/layout';
 
-//console.log(_.map)
 
-export default class MainLayout extends Component {
-  state = { activeItem : false}
-  componentDidUpdate(nextProps, nextState){
-    console.log(nextProps, nextState)
-  }
-  render() {
-    const {activeItem} = this.state
-    return (<div style={{height:"100%"}}>
+//let store = createStore()
+
+const MainLayout = () => {
+  return (
+    <div style={{height:"100%"}}>
         <div className="master-craft-mark"></div>
         <Top className="top-panel"></Top>
         <Middle className="middle-panel" />
         <Bottom className="bottom-panel" />
-      </div>
-    )
-  }
+    </div>
+  )
 }
 
 ReactDOM.render(<MainLayout/>, document.getElementById('layout'));
